@@ -72,8 +72,8 @@ public class InhaalExamenController {
 		
 		String html = "<HTML><BODY><h3> Aanvragen inhaalexamen van " + student + "</h3>";
 		for (InhaalExamen examen : examens) {
-			html +=  "<div><h5>Examen: " + examen.getExam() + "</h5>";
-			html +=  "<p>Reden: " + examen.getReason() + "</p>";
+			html +=  "<div><p>Reden: " + examen.getReason() + "</p>";
+			html +=  "<p>Examen: " + examen.getExam() + "</p>";
 			html +=  "<p>Datum: " + examen.getDate() + "</p>";
 			html += "</div>";
 			html += "<br>";
@@ -85,7 +85,7 @@ public class InhaalExamenController {
 	private class CustomComparator implements Comparator<InhaalExamen> {
 	    @Override
 	    public int compare(InhaalExamen o1, InhaalExamen o2) {
-	        return o1.getExam().compareTo(o2.getExam());
+	        return o1.getReason().toLowerCase().compareTo(o2.getReason().toLowerCase());
 	    }
 	}
 }
